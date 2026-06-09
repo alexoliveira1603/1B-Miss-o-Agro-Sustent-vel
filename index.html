@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Agro Sustentável</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- LOADING -->
+
+    <div id="loading">
+        <div class="loader"></div>
+        <h2>🌱 Carregando Fazenda...</h2>
+    </div>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="logo">
+
+            <img src="assets/logo.png" alt="Logo Missão Agro Sustentável">
+
+            <div>
+                <h1>🌱 Missão Agro Sustentável</h1>
+                <p>Agro forte, futuro sustentável</p>
+            </div>
+
+        </div>
+
+        <div class="top-buttons">
+
+            <button id="darkModeBtn">
+                🌙 Tema
+            </button>
+
+            <button id="tutorialBtn">
+                ❓ Tutorial
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- MENU -->
+
+    <nav>
+
+        <button onclick="mostrarTela('inicio')">🏠 Início</button>
+        <button onclick="mostrarTela('simulador')">🚜 Fazenda</button>
+        <button onclick="mostrarTela('dashboard')">📊 Dashboard</button>
+        <button onclick="mostrarTela('ranking')">🏆 Ranking</button>
+        <button onclick="mostrarTela('conquistas')">🎖️ Conquistas</button>
+
+    </nav>
+
+    <main>
+
+        <!-- INÍCIO -->
+
+        <section id="inicio" class="tela ativa">
+
+            <div class="hero">
+
+                <img
+                    src="assets/campo.jpg"
+                    alt="Campo Sustentável"
+                    class="hero-img">
+
+                <h2>Construa a Fazenda do Futuro</h2>
+
+                <p>
+                    Tome decisões inteligentes para equilibrar
+                    produção, lucro e preservação ambiental.
+                </p>
+
+                <ul>
+                    <li>🌾 Produção</li>
+                    <li>💧 Água</li>
+                    <li>🌳 Meio Ambiente</li>
+                    <li>💰 Lucro</li>
+                    <li>⚡ Energia</li>
+                </ul>
+
+                <button
+                    class="btn-principal"
+                    onclick="mostrarTela('simulador')">
+
+                    🚜 Iniciar Simulação
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- SIMULADOR -->
+
+        <section id="simulador" class="tela">
+
+            <h2>🚜 Painel da Fazenda</h2>
+
+            <div class="painel">
+
+                <div class="card">
+                    <h3>🌾 Produção</h3>
+                    <span id="producao">50</span>
+                </div>
+
+                <div class="card">
+                    <h3>💧 Água</h3>
+                    <span id="agua">50</span>
+                </div>
+
+                <div class="card">
+                    <h3>🌳 Ambiente</h3>
+                    <span id="ambiente">50</span>
+                </div>
+
+                <div class="card">
+                    <h3>💰 Lucro</h3>
+                    <span id="lucro">50</span>
+                </div>
+
+                <div class="card">
+                    <h3>⚡ Energia</h3>
+                    <span id="energia">50</span>
+                </div>
+
+            </div>
+
+            <div class="barra-area">
+
+                <h3>Nível de Sustentabilidade</h3>
+
+                <div class="barra">
+                    <div id="progresso"></div>
+                </div>
+
+            </div>
+
+            <div class="acoes">
+
+                <button onclick="irrigacaoInteligente()">💧 Irrigação Inteligente</button>
+                <button onclick="plantioDiversificado()">🌾 Plantio Diversificado</button>
+                <button onclick="energiaSolar()">☀️ Energia Solar</button>
+                <button onclick="captacaoChuva()">🌧️ Captação de Chuva</button>
+                <button onclick="reflorestamento()">🌳 Reflorestamento</button>
+                <button onclick="aduboOrganico()">🌱 Adubo Orgânico</button>
+                <button onclick="controleBiologico()">🐞 Controle Biológico</button>
+                <button onclick="agriculturaPrecisao()">🛰️ Agricultura de Precisão</button>
+                <button onclick="reciclagem()">♻️ Reciclagem Rural</button>
+                <button onclick="usoAgrotoxico()">☠️ Uso Excessivo de Agrotóxicos</button>
+
+            </div>
+
+            <div style="text-align:center;margin-top:20px;">
+
+                <button
+                    class="btn-reiniciar"
+                    onclick="reiniciarSimulacao()">
+
+                    🔄 Reiniciar Simulação
+
+                </button>
+
+            </div>
+
+            <div id="mensagem">
+                Escolha uma ação para iniciar sua fazenda sustentável.
+            </div>
+
+        </section>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="tela">
+
+            <h2>📊 Dashboard da Fazenda</h2>
+
+            <img
+                src="assets/campo.jpg"
+                alt="Campo Sustentável"
+                class="dashboard-banner">
+
+            <div class="grafico-container">
+                <canvas id="grafico"></canvas>
+            </div>
+
+        </section>
+
+        <!-- RANKING -->
+
+        <section id="ranking" class="tela">
+
+            <h2>🏆 Resultado Final</h2>
+
+            <div id="resultado">
+                Clique em Avaliar Fazenda.
+            </div>
+
+            <button onclick="avaliarProjeto()">
+                📋 Avaliar Fazenda
+            </button>
+
+            <button onclick="salvarPontuacao()">
+                💾 Salvar Ranking
+            </button>
+
+            <div id="rankingLocal"></div>
+
+        </section>
+
+        <!-- CONQUISTAS -->
+
+        <section id="conquistas" class="tela">
+
+            <h2>🎖️ Conquistas</h2>
+
+            <div id="listaConquistas">
+                <p>🔒 Nenhuma conquista desbloqueada</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>🌱 Projeto desenvolvido para o Concurso Agrinho 2026</p>
+
+        <p>
+            HTML • CSS • JavaScript • Sustentabilidade
+        </p>
+
+    </footer>
+
+    <!-- MODAL -->
+
+    <div id="tutorialModal" class="modal">
+
+        <div class="modal-content">
+
+            <span id="fecharModal">&times;</span>
+
+            <h2>📖 Tutorial</h2>
+
+            <p>Seu objetivo é equilibrar:</p>
+
+            <ul>
+                <li>🌾 Produção</li>
+                <li>💧 Água</li>
+                <li>🌳 Meio Ambiente</li>
+                <li>💰 Lucro</li>
+                <li>⚡ Energia</li>
+            </ul>
+
+            <p>
+                Escolha ações sustentáveis para aumentar os indicadores
+                e alcançar a melhor pontuação possível.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CHART.JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- SCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
